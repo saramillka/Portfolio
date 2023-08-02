@@ -254,6 +254,7 @@
             margin-top: 26px;
             
         }
+      
         #footer h2{
             text-align: center;
             font-size: 28px;
@@ -273,6 +274,9 @@
             grid-template-rows: 100px 1fr 1fr;
             justify-items: center;           
             overflow: hidden;
+            height:0;
+            transition:0.3s;
+            /* height:596px; */
             
         }
         .fot-con .img-box{
@@ -800,6 +804,7 @@
                 </article>
             </div>                  
         </footer>
+        <!-- <div style="height:1000px;"></div> -->
     </div>
     
     <script>
@@ -839,8 +844,20 @@
     
     $(document).ready(function(){   
    
+        let fotNum = 0;
         $('#footer h2').click(function(){
-            $('.fot-con').slideToggle();
+            let scrTop = $(window).scrollTop();
+            if(fotNum==0){                
+                $('.fot-con').css('height','596px');
+                setTimeout(() => {
+                    $(window).scrollTop(scrTop + 600);
+                }, 300);
+                fotNum=1;
+            }else{
+                $('.fot-con').css('height','0');
+                fotNum=0;
+            }            
+            
         });
        
     });
