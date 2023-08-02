@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="stylesheet" href="./css/desingn">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <title>index</title>
@@ -20,6 +21,7 @@
             font-weight: 400;
         }
         :root{
+            scroll-behavior: smooth;
             font-family: 'con' sans-serif;
             font-size: 16px;
             font-weight: 400;
@@ -69,14 +71,14 @@
         }
         #top-btn{
             position: fixed;
-            right: 30px;
-            top: 50%;
-            bottom: 0;
+            right: 30px;            
+            bottom: 50px;
             background: rgba(13, 57, 82, 0.75);
             border-radius: 10px;
             width: 50px;
             height: 50px;
             z-index: 9999;
+            display: none;
         }
         .top-btn{
             text-align: center;
@@ -269,8 +271,8 @@
             display: grid;
             grid-template-columns: repeat(3,1fr);
             grid-template-rows: 100px 1fr 1fr;
-            justify-items: center;
-            
+            justify-items: center;           
+            overflow: hidden;
             
         }
         .fot-con .img-box{
@@ -527,7 +529,7 @@
         .fot-con{
             grid-template-columns: repeat(3,1fr);
             grid-template-rows: 100px 1fr 100px ;
-            
+           
             
         }
         .fot-con .potobox{
@@ -577,7 +579,7 @@
             display:none;
         }
         #top-nav{
-            display: block;
+            display: block !important;
             position: static;
             grid-column: 5/13;
             order: 2;
@@ -703,7 +705,7 @@
                         <li class="last"><a href="#footer">◇CONTACT</a></li>
                     </ul>
                 </nav>
-                <div class="nav-btn" onclick="toggleNav()">
+                <div class="nav-btn">
                         <span>1</span>
                         <span>2</span>
                         <span>3</span>
@@ -870,7 +872,13 @@
     // })
          
 
-
+    $(window).scroll(function(){        
+        if($(window).scrollTop()>=600){
+            $('#top-btn').css('display','block');
+        }else{
+            $('#top-btn').css('display','none');
+        }
+    });
     </script>
 </body>
 </html>
